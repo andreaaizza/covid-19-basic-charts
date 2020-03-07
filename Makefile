@@ -3,8 +3,8 @@ GIT_SRC=https://github.com/CSSEGISandData/COVID-19.git
 all: create 
 
 create: 
-	$(eval DATE=$(shell date -u +%Y%m%d%H%M))
-	$(eval FN=$(shell echo covid-${DATE}.html))
+	$(if ${OUT_FILE}, $(eval FN=${OUT_FILE}), $(eval FN=covid-$(shell date -u +%Y%m%d%H%M).html) )
+	@echo Generating update to ${FN}
 
 	# update
 	test -s COVID-19 || git clone ${GIT_SRC}
