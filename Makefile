@@ -16,4 +16,4 @@ create:
 clean_html:
 	rm -f covid*.html
 
-clean_all: clean_html
+clean: clean_html
